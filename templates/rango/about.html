@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<!-- {% load staticfiles %} -->
+ {% load staticfiles %} 
 
 <html>
 
@@ -16,8 +16,10 @@
 		</div>
 		<div>
 			<a href="/rango/">Index</a><br />
-			<!--  <img src="{% static "images/rango.jpg" %}" alt="Picture of Rango" /> -->
-			<!-- <img src="{% media "cat.jpg"%}" alt="Picture of a cat" /> -->
+			<img src="{% static "images/bear.jpg" %}" alt="Picture of a bear" />
+			<div>
+			<img src="{{ MEDIA_URL}}cat.jpg" alt="Picture of a cat" /> 
+			</div>
 		</div>
 	</body>
 	
