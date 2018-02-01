@@ -7,14 +7,7 @@ from rango.models import Page
 
 from django.http import HttpResponse
 
-def index(request):
-    # Query the database for a list of ALL categories currently stored.
-    # Order the categories by no. likes in descending order.
-    # Retrieve the top 5 only - or all if less than 5.
-    # Place the list in our context_dict dictionary
-    # that will be passed to the template engine.
-
-    
+def index(request):    
     #construct a dictionary to pass to the template engine as its context
     category_list = Category.objects.order_by('-likes')[:5]
     page_list = Page.objects.order_by('-views')[:5]
@@ -26,7 +19,11 @@ def index(request):
     return render(request, 'rango/index.html', context_dict)
 
 def about(request):
-    context_dict = { 'boldmessage': "I am a big boi"}
+    # prints out whether the method is a GET or a POST
+    print(request.method)
+    # prints out the user n
+    context_dict = {}
+    print(request.user)
     return render(request, 'rango/about.html', context = context_dict)
 
 def show_category(request, category_name_slug):
