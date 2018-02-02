@@ -60,6 +60,7 @@ def show_category(request, category_name_slug):
     # Go render the response and return it to the client.
     return render(request, 'rango/category.html', context_dict)
 
+@login_required
 def add_category(request):
     form = CategoryForm()
     # A HTTP POST?
@@ -83,6 +84,7 @@ def add_category(request):
     # Render the form with error messages (if any).
     return render(request, 'rango/add_category.html', {'form': form})
 
+@login_required
 def add_page(request,category_name_slug):
     try:
         category = Category.objects.get(slug=category_name_slug)
@@ -205,7 +207,14 @@ def user_login(request):
 
 @login_required
 def restricted(request):
-    return HttpResponse("Since you're logged in, you can see this text!")
+    # prints out whether the method is a GET or a POST
+    print("Request method for restricted: " + request.method)
+    
+    context_dict = {}
+          
+    url = reverse('restricted')[1:] + '.html'
+    #Old version was: return HttpResponse("Since you're logged in, you can see this text!")
+    return render(request, url, context = context_dict)
 
 
 # Use the login_required() decorator to ensure only those logged in can
