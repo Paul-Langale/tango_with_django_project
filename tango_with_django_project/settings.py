@@ -136,4 +136,5 @@ STATICFILES_DIRS = [STATIC_DIR]
 
 STATIC_URL = '/static/'
 
-LOGIN_URL = '/rango/login/'
+LOGIN_URL = '/rango/login/'
+
