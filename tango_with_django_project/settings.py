@@ -28,7 +28,7 @@ SECRET_KEY = '-$bd957cl(4s$%hn2wov-99yn!m+bcb_z4)_rqrcmnu-#+#8$$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['rango.pythonanywhere.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
